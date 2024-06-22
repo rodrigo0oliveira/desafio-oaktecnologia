@@ -2,6 +2,7 @@ package com.oaktecnologia.desafio.services;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -35,6 +36,11 @@ public class ProdutoService {
 		catch(EmptyResultDataAccessException e) {
 			throw new RecursoNaoEncontrado("Produto não encontrado!");
 		}
+	}
+	
+	public Produto buscarPorId(Long id) {
+		Optional<Produto> produto = produtoRepository.findById(id);
+		return produto.orElseThrow(()-> new RecursoNaoEncontrado("Produto não encontrado!"));
 	}
 	
 

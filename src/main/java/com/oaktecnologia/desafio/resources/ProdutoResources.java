@@ -41,4 +41,10 @@ public class ProdutoResources {
 		produtoService.deletarProduto(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Produto> buscarPorId(@PathVariable Long id){
+		Produto produto = produtoService.buscarPorId(id);
+		return ResponseEntity.ok().body(produto);
+	}
 }
