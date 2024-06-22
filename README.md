@@ -9,7 +9,7 @@ Esse repositório refere-se ao desafio de programação da Oak Tecnologia onde e
 * Spring Data JPA
 * Banco de dados H2
 * Postman para realizar requisições HTTP.
-* Swagger para docummentação da API.
+* Swagger para documentação da API.
 
 # Funcionalidades da API
 Após estar utilizando o projeto com as instruções de como utilizar, acesse a documentação swagger para uma melhor visualização -> http://localhost:8080/swagger/index.html
