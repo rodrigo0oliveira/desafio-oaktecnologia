@@ -37,8 +37,8 @@ public class ProdutoResources {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<List<Produto>> deletarProduto(@PathVariable Long id){
-		List<Produto> listaProdutos = produtoService.deletarProduto(id);
-		return ResponseEntity.ok().body(listaProdutos);
+	public ResponseEntity<Produto> deletarProduto(@PathVariable Long id){
+		produtoService.deletarProduto(id);
+		return ResponseEntity.noContent().build();
 	}
 }
