@@ -1,3 +1,5 @@
+![image](https://github.com/rodrigo0oliveira/desafio-oaktecnologia/assets/170271521/5d046698-a0e0-4c21-babe-85cda8a39df6)
+
 # Desafio Oak Tecnologia
 Esse repositório refere-se ao desafio de programação da Oak Tecnologia onde era necessário criar um código de cadastro e listagem de produtos.
 
@@ -10,7 +12,13 @@ Esse repositório refere-se ao desafio de programação da Oak Tecnologia onde e
 * Swagger para docummentação da API.
 
 # Funcionalidades da API
-Após estar utilizando o projeto com as instruções de como utilizar, acesse a documentação swagger -> http://localhost:8080/swagger/index.html
+Após estar utilizando o projeto com as instruções de como utilizar, acesse a documentação swagger para uma melhor visualização -> http://localhost:8080/swagger/index.html
+* GET- Retorna todos os produtos existentes.
+* POST - Inseri um novo produto.
+* GET - Retorna um produto buscado por id.
+* DELETE - Deleta um produto por id.
+
+* Observação : No desafio não foi pedido as funcionalidades de buscar e deletar um produto por id,mas considerei como métodos que agregariam a aplicação.
 
 # Como utilizar e testar a API localmente:
 * O projeto foi desenvolvido em um ambiente Linux Debian 11 e usando a IDE Spring Tools Suite,mas caso esteja em outro sistema operacional ou IDE não terá problemas.
