@@ -10,6 +10,7 @@ Esse repositório refere-se ao desafio de programação da Oak Tecnologia onde e
 * Swagger para docummentação da API.
 
 # Funcionalidades da API
+Após estar utilizando o projeto com as instruções de como utilizar, acesse a documentação swagger -> http://localhost:8080/swagger/index.html
 
 # Como utilizar e testar a API localmente:
 * O projeto foi desenvolvido em um ambiente Linux Debian 11 e usando a IDE Spring Tools Suite,mas caso esteja em outro sistema operacional ou IDE não terá problemas.
