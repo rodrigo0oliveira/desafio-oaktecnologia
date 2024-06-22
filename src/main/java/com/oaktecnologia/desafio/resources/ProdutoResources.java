@@ -17,19 +17,25 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.oaktecnologia.desafio.domain.Produto;
 import com.oaktecnologia.desafio.services.ProdutoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
-@RequestMapping(value = "/produtos")
+@RequestMapping(value = "/produtos",produces = {"application/json"})
+@Tag(name = "api-desafio")
 public class ProdutoResources {
 	
 	@Autowired
 	private ProdutoService produtoService;
 	
 	@GetMapping
+	@Operation(summary = "Retorna todos os produtos existentes.",method = "GET")
 	public ResponseEntity<List<Produto>> listaProdutos(){
 		return ResponseEntity.ok().body(produtoService.listaProdutos());
 	}
 	
 	@PostMapping
+	@Operation(summary = "Inseri um novo produto.",method = "POST")
 	public ResponseEntity<List<Produto>> inserirProduto(@RequestBody Produto produto){
 		List<Produto> listaProdutos = produtoService.inserirProduto(produto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(produto.getId()).toUri();
@@ -37,12 +43,14 @@ public class ProdutoResources {
 	}
 	
 	@DeleteMapping(value = "/{id}")
+	@Operation(summary = "Deleta um produto por id.",method = "DELETE")
 	public ResponseEntity<Produto> deletarProduto(@PathVariable Long id){
 		produtoService.deletarProduto(id);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping(value = "/{id}")
+	@Operation(summary = "Buscar um produto por id.",method = "GET")
 	public ResponseEntity<Produto> buscarPorId(@PathVariable Long id){
 		Produto produto = produtoService.buscarPorId(id);
 		return ResponseEntity.ok().body(produto);
