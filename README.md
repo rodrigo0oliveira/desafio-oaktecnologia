@@ -16,6 +16,7 @@ Após estar utilizando o projeto com as instruções de como utilizar, acesse a 
 * GET- Retorna todos os produtos existentes.
 * POST - Inseri um novo produto.
 * GET - Retorna um produto buscado por id.
+* PUT - Edita um produto buscado por id.
 * DELETE - Deleta um produto por id.
 
 * Observação : No desafio não foi pedido as funcionalidades de buscar e deletar um produto por id,mas considerei como métodos que agregariam a aplicação.
