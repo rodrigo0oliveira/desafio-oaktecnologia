@@ -2,6 +2,7 @@ package com.oaktecnologia.desafio.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.oaktecnologia.desafio.domain.Produto;
+import com.oaktecnologia.desafio.domain.ProdutoDTO;
 import com.oaktecnologia.desafio.services.ProdutoService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -54,5 +57,12 @@ public class ProdutoResources {
 	public ResponseEntity<Produto> buscarPorId(@PathVariable Long id){
 		Produto produto = produtoService.buscarPorId(id);
 		return ResponseEntity.ok().body(produto);
+	}
+	
+	@PutMapping(value = "/{id}")
+	@Operation(summary = "Editar um produto por id",method = "PUT")
+	public ResponseEntity<Optional<Produto>> editarPorId(@PathVariable Long id,@RequestBody ProdutoDTO produto){
+		Optional<Produto> produtoEditado  = produtoService.editarPorId(id, produto);
+		return ResponseEntity.ok().body(produtoEditado);
 	}
 }

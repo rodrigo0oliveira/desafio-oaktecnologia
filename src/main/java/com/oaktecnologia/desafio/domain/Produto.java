@@ -32,7 +32,6 @@ public class Produto implements Serializable{
 		this.descricao = descricao;
 		this.valor = valor;
 		this.disponivel = disponivel;
-		this.id = id;
 	}
 
 	public Long getId() {

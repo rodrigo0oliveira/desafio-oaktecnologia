@@ -9,6 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.oaktecnologia.desafio.domain.Produto;
+import com.oaktecnologia.desafio.domain.ProdutoDTO;
 import com.oaktecnologia.desafio.repository.ProdutoRepository;
 import com.oaktecnologia.desafio.services.exceptions.RecursoNaoEncontrado;
 
@@ -41,6 +42,19 @@ public class ProdutoService {
 	public Produto buscarPorId(Long id) {
 		Optional<Produto> produto = produtoRepository.findById(id);
 		return produto.orElseThrow(()-> new RecursoNaoEncontrado("Produto não encontrado!"));
+	}
+	
+	public Optional<Produto> editarPorId(Long id,ProdutoDTO produto) {
+		Optional<Produto> produtoEditar = produtoRepository.findById(id);
+		editar(produto,produtoEditar);
+		return produtoEditar;	
+	}
+	
+	private void editar(ProdutoDTO produto,Optional<Produto> editado) {
+		editado.get().setNome(produto.nome());
+		editado.get().setDescricao(produto.descricao());
+		editado.get().setValor(produto.valor());
+		
 	}
 	
 
